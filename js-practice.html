@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript 基础练习 - 变量/流程控制/函数</title>
+    <style>
+        body {
+            font-family: "Microsoft YaHei", sans-serif;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1, h2 {
+            color: #2c3e50;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+        }
+        .section {
+            margin: 30px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        code {
+            background: #e8f4f8;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #e74c3c;
+            font-weight: bold;
+        }
+        pre {
+            background: #2d2d2d;
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+        .result {
+            color: #27ae60;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>📝 JavaScript 基础综合练习</h1>
+
+    <!-- 1. 变量定义与变量类型模块 -->
+    <div class="section">
+        <h2>1. 变量定义 & 变量类型检测</h2>
+        <p>核心知识点：<code>let/const</code> 声明、<code>typeof</code> 类型检测、基本数据类型（字符串/数字/布尔/undefined/null）</p >
+        <pre>
+// 1.1 定义不同类型的变量
+let userName = "Claude 作业提交"; // 字符串类型
+let userAge = 22; // 数字类型（整数）
+let userScore = 92.5; // 数字类型（浮点数）
+let isPass = true; // 布尔类型
+let emptyVal = null; // 空类型
+let undefinedVal; // 未定义类型
+
+// 1.2 输出变量类型到页面（修复typeof null的历史bug）
+document.write("&lt;h3&gt;变量类型检测结果&lt;/h3&gt;");
+document.write("用户名：" + userName + " → 类型：" + typeof(userName) + "&lt;br&gt;");
+document.write("年龄：" + userAge + " → 类型：" + typeof(userAge) + "&lt;br&gt;");
+document.write("分数：" + userScore + " → 类型：" + typeof(userScore) + "&lt;br&gt;");
+document.write("是否通过：" + isPass + " → 类型：" + typeof(isPass) + "&lt;br&gt;");
+// 修复typeof null返回object的bug，改用=== null判断
+document.write("空值：" + emptyVal + " → 类型：" + (emptyVal === null ? "null" : typeof(emptyVal)) + "&lt;br&gt;");
+document.write("未定义：" + undefinedVal + " → 类型：" + typeof(undefinedVal) + "&lt;br&gt;&lt;hr&gt;");
+        </pre>
+        <div class="result">
+            <script>
+                // 1.1 定义不同类型的变量
+                let userName = "Claude 作业提交"; // 字符串类型
+                let userAge = 22; // 数字类型（整数）
+                let userScore = 92.5; // 数字类型（浮点数）
+                let isPass = true; // 布尔类型
+                let emptyVal = null; // 空类型
+                let undefinedVal; // 未定义类型
+
+                // 1.2 输出变量类型到页面（修复typeof null的历史bug）
+                document.write("<h3>变量类型检测结果</h3>");
+                document.write("用户名：" + userName + " → 类型：" + typeof(userName) + "<br>");
+                document.write("年龄：" + userAge + " → 类型：" + typeof(userAge) + "<br>");
+                document.write("分数：" + userScore + " → 类型：" + typeof(userScore) + "<br>");
+                document.write("是否通过：" + isPass + " → 类型：" + typeof(isPass) + "<br>");
+                // 修复typeof null返回object的bug，改用=== null判断
+                document.write("空值：" + emptyVal + " → 类型：" + (emptyVal === null ? "null" : typeof(emptyVal)) + "<br>");
+                document.write("未定义：" + undefinedVal + " → 类型：" + typeof(undefinedVal) + "<br><hr>");
+            </script>
+        </div>
+    </div>
+
+    <!-- 2. 表达式模块 -->
+    <div class="section">
+        <h2>2. 表达式（算术/比较/逻辑运算）</h2>
+        <p>核心知识点：算术运算符、比较运算符、逻辑运算符、表达式运算结果</p >
+        <pre>
+// 2.1 算术表达式
+let num1 = 20;
+let num2 = 7;
+let add = num1 + num2; // 加法
+let sub = num1 - num2; // 减法
+let mul = num1 * num2; // 乘法
+let div = num1 / num2; // 除法
+let mod = num1 % num2; // 取余
+
+// 2.2 比较表达式
+let isGreater = num1 > num2; // 大于
+let isEqual = num1 === 20; // 全等（值+类型）
+
+// 2.3 逻辑表达式
+let hasScore = userScore > 60 && userScore <= 100; // 逻辑与
+let isActive = userAge < 18 || userAge > 60; // 逻辑或
+
+// 2.4 输出表达式结果
+document.write("&lt;h3&gt;表达式运算结果&lt;/h3&gt;");
+document.write(num1 + " + " + num2 + " = " + add + "&lt;br&gt;");
+document.write(num1 + " > " + num2 + " → " + isGreater + "&lt;br&gt;");
+document.write("分数合法（60-100）→ " + hasScore + "&lt;br&gt;");
+        </pre>
+        <div class="result">
+            <script>
+                // 2.1 算术表达式
+                let num1 = 20;
+                let num2 = 7;
+                let add = num1 + num2; // 加法
+                let sub = num1 - num2; // 减法
+                let mul = num1 * num2; // 乘法
+                let div = num1 / num2; // 除法
+                let mod = num1 % num2; // 取余
+
+                // 2.2 比较表达式
+                let isGreater = num1 > num2; // 大于
+                let isEqual = num1 === 20; // 全等（值+类型）
+
+                // 2.3 逻辑表达式
+                let hasScore = userScore > 60 && userScore <= 100; // 逻辑与
+                let isActive = userAge < 18 || userAge > 60; // 逻辑或
+
+                // 2.4 输出表达式结果
+                document.write("<h3>表达式运算结果</h3>");
+                document.write(num1 + " + " + num2 + " = " + add + "<br>");
+                document.write(num1 + " > " + num2 + " → " + isGreater + "<br>");
+                document.write("分数合法（60-100）→ " + hasScore + "<br>");
+            </script>
+        </div>
+    </div>
+
+    <!-- 3. 流程控制模块 -->
+    <div class="section">
+        <h2>3. 流程控制（if-else/switch/循环）</h2>
+        <p>核心知识点：条件分支语句、循环语句</p >
+        <pre>
+// 3.1 if-else 流程控制（成绩评级）
+document.write("&lt;h3&gt;成绩评级（if-else 流程）&lt;/h3&gt;");
+if (userScore >= 90) {
+    document.write("分数 " + userScore + " → 评级：优秀 &lt;br&gt;");
+} else if (userScore >= 80) {
+    document.write("分数 " + userScore + " → 评级：良好 &lt;br&gt;");
+} else if (userScore >= 60) {
+    document.write("分数 " + userScore + " → 评级：及格 &lt;br&gt;");
+} else {
+    document.write("分数 " + userScore + " → 评级：不及格 &lt;br&gt;");
+}
+
+// 3.2 switch 流程控制（月份季节）
+document.write("&lt;h3&gt;季节判断（switch 流程）&lt;/h3&gt;");
+let month = 4;
+switch(month) {
+    case 3: case 4: case 5:
+        document.write("月份 " + month + " → 春季 &lt;br&gt;");
+        break;
+    case 6: case 7: case 8:
+        document.write("月份 " + month + " → 夏季 &lt;br&gt;");
+        break;
+    case 9: case 10: case 11:
+        document.write("月份 " + month + " → 秋季 &lt;br&gt;");
+        break;
+    case 12: case 1: case 2:
+        document.write("月份 " + month + " → 冬季 &lt;br&gt;");
+        break;
+    default:
+        document.write("月份 " + month + " → 无效月份 &lt;br&gt;");
+}
+
+// 3.3 for 循环（输出1-5）
+document.write("&lt;h3&gt;1-5 数字循环（for 循环）&lt;/h3&gt;");
+for (let i = 1; i <= 5; i++) {
+    document.write("循环值：" + i + " &lt;br&gt;");
+}
+        </pre>
+        <div class="result">
+            <script>
+                // 3.1 if-else 流程控制（成绩评级）
+                document.write("<h3>成绩评级（if-else 流程）</h3>");
+                if (userScore >= 90) {
+                    document.write("分数 " + userScore + " → 评级：优秀 <br>");
+                } else if (userScore >= 80) {
+                    document.write("分数 " + userScore + " → 评级：良好 <br>");
+                } else if (userScore >= 60) {
+                    document.write("分数 " + userScore + " → 评级：及格 <br>");
+                } else {
+                    document.write("分数 " + userScore + " → 评级：不及格 <br>");
+                }
+
+                // 3.2 switch 流程控制（月份季节）
+                document.write("<h3>季节判断（switch 流程）</h3>");
+                let month = 4;
+                switch(month) {
+                    case 3: case 4: case 5:
+                        document.write("月份 " + month + " → 春季 <br>");
+                        break;
+                    case 6: case 7: case 8:
+                        document.write("月份 " + month + " → 夏季 <br>");
+                        break;
+                    case 9: case 10: case 11:
+                        document.write("月份 " + month + " → 秋季 <br>");
+                        break;
+                    case 12: case 1: case 2:
+                        document.write("月份 " + month + " → 冬季 <br>");
+                        break;
+                    default:
+                        document.write("月份 " + month + " → 无效月份 <br>");
+                }
+
+                // 3.3 for 循环（输出1-5）
+                document.write("<h3>1-5 数字循环（for 循环）</h3>");
+                for (let i = 1; i <= 5; i++) {
+                    document.write("循环值：" + i + " <br>");
+                }
+            </script>
+        </div>
+    </div>
+
+    <!-- 4. 函数模块 -->
+    <div class="section">
+        <h2>4. 函数定义与调用</h2>
+        <p>核心知识点：函数声明、参数传递、返回值、函数调用</p >
+        <pre>
+// 4.1 无返回值函数（打印信息）
+function showUserInfo() {
+    document.write("&lt;h3&gt;用户信息（无返回值函数）&lt;/h3&gt;");
+    document.write("姓名：" + userName + " &lt;br&gt;");
+    document.write("年龄：" + userAge + " &lt;br&gt;");
+}
+
+// 4.2 有返回值函数（计算平均分）
+function calcAverage(scores) {
+    let sum = 0;
+    for (let score of scores) {
+        sum += score;
+    }
+    return sum / scores.length;
+}
+
+// 4.3 函数调用
+showUserInfo(); // 调用无参函数
+let scoreArr = [92, 85, 96];
+let avgScore = calcAverage(scoreArr); // 调用有参函数
+document.write("&lt;h3&gt;平均分计算（有返回值函数）&lt;/h3&gt;");
+document.write("成绩数组：" + scoreArr + " → 平均分：" + avgScore.toFixed(2) + "&lt;br&gt;");
+        </pre>
+        <div class="result">
+            <script>
+                // 4.1 无返回值函数（打印信息）
+                function showUserInfo() {
+                    document.write("<h3>用户信息（无返回值函数）</h3>");
+                    document.write("姓名：" + userName + " <br>");
+                    document.write("年龄：" + userAge + " <br>");
+                }
+
+                // 4.2 有返回值函数（计算平均分）
+                function calcAverage(scores) {
+                    let sum = 0;
+                    for (let score of scores) {
+                        sum += score;
+                    }
+                    return sum / scores.length;
+                }
+
+                // 4.3 函数调用
+                showUserInfo(); // 调用无参函数
+                let scoreArr = [92, 85, 96];
+                let avgScore = calcAverage(scoreArr); // 调用有参函数
+                document.write("<h3>平均分计算（有返回值函数）</h3>");
+                document.write("成绩数组：" + scoreArr + " → 平均分：" + avgScore.toFixed(2) + "<br>");
+            </script>
+        </div>
+    </div>
+
+</body>
+</html>
